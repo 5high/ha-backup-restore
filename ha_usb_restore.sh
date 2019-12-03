@@ -11,7 +11,7 @@ if [ -d "${BACKUP_FOLDER}" ]; then
 	if [ ! -d "${BACKUP_LOCATION}" ]; then
                 log e "Homeassistant folder not found, is it correct?" 1
 	else
-		sudo rm -rf ${BACKUP_LOCATION}/.cloud/ custom_components/ home-assistant* *.yaml .homekit.state .storage/
+		sudo rm -rf ${BACKUP_LOCATION}/ .cloud/ custom_components/ home-assistant* *.yaml .homekit.state .storage/
 		unzip ${BACKUP_FOLDER}/hass-config.zip -d ${BACKUP_LOCATION}
 		sudo pip3 install home-assistant-frontend
 		sudo systemctl restart hass
