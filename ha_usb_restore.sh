@@ -9,7 +9,7 @@ BACKUP_FOLDER=/media/hassbackup/
 BACKUP_LOCATION=$HOME/.homeassistant
 if [ -d "${BACKUP_FOLDER}" ]; then
 	if [ ! -d "${BACKUP_LOCATION}" ]; then
-                log e "Homeassistant folder not found, is it correct?" 1
+                echo "Homeassistant folder not found, is it correct?" 1
 	else
 	        sudo apt-get install zip -y
 		cd ${BACKUP_LOCATION}
@@ -19,5 +19,5 @@ if [ -d "${BACKUP_FOLDER}" ]; then
 		sudo umount /media
         fi
 else
-        log e "Backup folder not found, is your USB drive mounted?" 1
+        echo "Backup folder not found, is your USB drive mounted?" 1
 fi
