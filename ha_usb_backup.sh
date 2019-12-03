@@ -12,6 +12,7 @@ fi
 sudo chmod -R 777 /media/
 sudo mkdir /media/hassbackup
 sudo chmod -R 777 /media/hassbackup/
+sudo apt-get install zip -y
 BACKUP_FOLDER=/media/hassbackup/
 BACKUP_FILE=${BACKUP_FOLDER}hass-config_$(date +"%Y%m%d_%H%M%S").zip
 BACKUP_FILE1=${BACKUP_FOLDER}hass-config.zip
