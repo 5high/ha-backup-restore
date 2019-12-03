@@ -1,4 +1,12 @@
 #!/bin/bash
+log() {
+        if [ "${DEBUG}" == "true" ] || [ "${1}" != "d" ]; then
+                echo "[${1}] ${2}"
+                if [ "${3}" != "" ]; then
+                        exit ${3}
+                fi
+        fi
+}
 sudo systemctl stop hass
 if [ -b /dev/sda1 ]; then
 	sudo mount /dev/sda1 /media
@@ -9,7 +17,7 @@ BACKUP_FOLDER=/media/hassbackup/
 BACKUP_LOCATION=$HOME/.homeassistant
 if [ -d "${BACKUP_FOLDER}" ]; then
 	if [ ! -d "${BACKUP_LOCATION}" ]; then
-                echo "Homeassistant folder not found, is it correct?" 1
+                log e "Homeassistant folder not found, is it correct?" 1
 	else
 	        sudo apt-get install zip -y
 		cd ${BACKUP_LOCATION}
@@ -19,5 +27,5 @@ if [ -d "${BACKUP_FOLDER}" ]; then
 		sudo umount /media
         fi
 else
-        echo "Backup folder not found, is your USB drive mounted?" 1
+        log e "Backup folder not found, is your USB drive mounted?" 1
 fi
