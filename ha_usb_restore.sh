@@ -13,7 +13,7 @@ if [ -d "${BACKUP_FOLDER}" ]; then
 	else
 	        sudo apt-get install zip -y
 		cd ${BACKUP_LOCATION}
-		sudo rm -rf .cloud/ custom_components/ home-assistant* *.yaml *.conf .homekit.state .storage/
+		sudo rm -rf .HA_VERSION *.py.cloud/ custom_components/ home-assistant* *.yaml *.conf .homekit.state .storage/
 		unzip ${BACKUP_FOLDER}/hass-config.zip -d ${BACKUP_LOCATION}
 		sudo systemctl restart hass
 		sudo umount /media
