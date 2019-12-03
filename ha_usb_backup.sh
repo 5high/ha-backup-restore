@@ -36,12 +36,12 @@ if [ -d "${BACKUP_FOLDER}" ]; then
         pushd ${BACKUP_LOCATION} >/dev/null
         if [ "${INCLUDE_DB}" = true ] ; then
                 log i "Creating backup with database"
-                sudo zip -9 -q -r ${BACKUP_FILE} . -x"components/*" -x".HA_VERSION" -x"home-assistant.log"
+                sudo zip -9 -q -r ${BACKUP_FILE} . -x"components/*" -x"*.py" -x".HA_VERSION" -x"home-assistant.log"
 		sudo zip -9 -q -r ${BACKUP_FILE1} . -x"components/*" -x".HA_VERSION" -x"home-assistant.log"
         else
                 log i "Creating backup"
-                sudo zip -9 -q -r ${BACKUP_FILE} . -x"components/*" -x".HA_VERSION" -x"home-assistant.db" -x"home-assistant_v2.db" -x"home-assistant.log"
-		sudo zip -9 -q -r ${BACKUP_FILE1} . -x"components/*" -x".HA_VERSION" -x"home-assistant.db" -x"home-assistant_v2.db" -x"home-assistant.log"
+                sudo zip -9 -q -r ${BACKUP_FILE} . -x"components/*" -x"*.py" -x".HA_VERSION" -x"home-assistant.db" -x"home-assistant_v2.db" -x"home-assistant.log"
+		sudo zip -9 -q -r ${BACKUP_FILE1} . -x"components/*" -x"*.py" -x".HA_VERSION" -x"home-assistant.db" -x"home-assistant_v2.db" -x"home-assistant.log"
         fi
 
         popd >/dev/null
