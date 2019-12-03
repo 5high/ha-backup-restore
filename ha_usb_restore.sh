@@ -13,6 +13,7 @@ if [ -d "${BACKUP_FOLDER}" ]; then
 	else
 		sudo rm -rf ${BACKUP_LOCATION}
 		unzip ${BACKUP_FOLDER}/hass-config.zip -d ${BACKUP_LOCATION}
+		sudo pip3 install home-assistant-frontend
 		sudo systemctl restart hass
 		sudo umount /media
         fi
